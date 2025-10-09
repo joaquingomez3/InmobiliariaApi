@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+
+    <style name="Theme.InmobiliariaApi" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Color principal -->
+        <item name="colorPrimary">@color/jp_primary</item>
+        <item name="colorPrimaryVariant">@color/jp_primary</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="android:statusBarColor">@color/jp_primary</item>
+
+        <!-- Fuente y apariencia general -->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <style name="Theme.InmobiliariaApi.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+
+
+    <style name="Theme.InmobiliariaApi.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.InmobiliariaApi.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
