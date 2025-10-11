@@ -23,7 +23,7 @@ import retrofit2.Response;
 public class LoginViewModel extends AndroidViewModel {
 
 
-    private MutableLiveData<String> mMensaje = new MutableLiveData<>();
+    private MutableLiveData<String> mMensaje ;
 
     public LiveData<String> getMensaje() {
         if (mMensaje == null) {

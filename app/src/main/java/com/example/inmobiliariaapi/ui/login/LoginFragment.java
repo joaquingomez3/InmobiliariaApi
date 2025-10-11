@@ -37,18 +37,21 @@ public class LoginFragment extends Fragment {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        mv.getMensaje().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                binding.tvMensaje.setText(s);
-            }
-        });
+
 
         binding.btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mv.login(binding.etEmail.getText().toString(), binding.etContrasenia.getText().toString());
 
+            }
+        });
+
+        mv.getMensaje().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                binding.tvMensaje.setVisibility(View.VISIBLE);
+                binding.tvMensaje.setText(s);
             }
         });
 
