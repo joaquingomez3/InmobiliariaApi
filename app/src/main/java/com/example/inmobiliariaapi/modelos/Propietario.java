@@ -1,31 +1,33 @@
 package com.example.inmobiliariaapi.modelos;
 
-public class Propietario {
+import java.io.Serializable;
+
+public class Propietario implements Serializable {
     private int idPropietario;
-    private int dni;
+    private String dni;
     private String apellido;
     private String nombre;
-    private int telefono;
-    private String mail;
-    private String password;
+    private String telefono;
+    private String email;
+    private String clave;
 
     public Propietario() {}
 
-    public Propietario(int idPropietario, int dni, String apellido, String nombre, int telefono, String mail, String password) {
+    public Propietario(int idPropietario, String dni, String apellido, String nombre, String telefono, String mail, String password) {
         this.idPropietario = idPropietario;
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.telefono = telefono;
-        this.mail = mail;
-        this.password = password;
+        this.email = mail;
+        this.clave = password;
     }
 
     public int getIdPropietario() { return idPropietario; }
     public void setIdPropietario(int idPropietario) { this.idPropietario = idPropietario; }
 
-    public int getDni() { return dni; }
-    public void setDni(int dni) { this.dni = dni; }
+    public String getDni() { return dni; }
+    public void setDni(String dni) { this.dni = dni; }
 
     public String getApellido() { return apellido; }
     public void setApellido(String apellido) { this.apellido = apellido; }
@@ -33,13 +35,13 @@ public class Propietario {
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
 
-    public int getTelefono() { return telefono; }
-    public void setTelefono(int telefono) { this.telefono = telefono; }
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
 
-    public String getMail() { return mail; }
-    public void setMail(String mail) { this.mail = mail; }
+    public String getEmail() { return email; }
+    public void setEmail(String mail) { this.email = mail; }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    public String getClave() { return clave; }
+    public void setClave(String clave) { this.clave = clave; }
 }
 

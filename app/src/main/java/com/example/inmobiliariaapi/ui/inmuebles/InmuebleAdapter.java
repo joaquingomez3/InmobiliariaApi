@@ -1,16 +1,22 @@
-package com.example.inmobiliariaapi.modelos;
+package com.example.inmobiliariaapi.ui.inmuebles;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.inmobiliariaapi.R;
+import com.example.inmobiliariaapi.modelos.Inmueble;
+
 import java.util.List;
 
-/*public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.InmuebleAdapter.ViewHolderInmueble> {
+public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.ViewHolderInmueble> {
 
 
         private List<Inmueble> listado;
@@ -31,11 +37,16 @@ import java.util.List;
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolderInmueble holder, int position) {
+            String urls = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net";
             Inmueble inmuebleActual=listado.get(position);
             holder.direccion.setText("Direccion: "+inmuebleActual.getDireccion());
-            holder.superficie.setText("Superficie: "+inmuebleActual.getSuperficie());
-            holder.precio.setText("Precio: "+inmuebleActual.getPrecio());
-            holder.foto.setImageResource(inmuebleActual.getFoto());
+            holder.precio.setText("Precio: "+inmuebleActual.getValor());
+            Glide.with(context)
+                    .load(urls + inmuebleActual.getImagen())
+                    .placeholder(R.drawable.logo)
+                    .error("null")
+                    .into(holder.foto);
+
 
 
         }
@@ -46,17 +57,18 @@ import java.util.List;
         }
 
         public class ViewHolderInmueble extends RecyclerView.ViewHolder{
-            TextView direccion,superficie,precio;
+            TextView direccion,precio;
             ImageView foto;
 
             public ViewHolderInmueble(@NonNull View itemView) {
                 super(itemView);
-                direccion=itemView.findViewById(R.id.tvDireccion);
-                superficie=itemView.findViewById(R.id.tvSuperficie);
-                precio=itemView.findViewById(R.id.tvPrecio);
-                foto=itemView.findViewById(R.id.foto);
+                foto=itemView.findViewById(R.id.iv_foto_inmueble);
+                precio=itemView.findViewById(R.id.tv_precio_inmueble);
+                direccion=itemView.findViewById(R.id.tv_direccion_inmueble);
+
+
             }
         }
-    }
-}*/
+}
+
 

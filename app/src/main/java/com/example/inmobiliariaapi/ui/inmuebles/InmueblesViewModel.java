@@ -1,19 +1,52 @@
 package com.example.inmobiliariaapi.ui.inmuebles;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class InmueblesViewModel extends ViewModel {
+import com.example.inmobiliariaapi.modelos.Inmueble;
+import com.example.inmobiliariaapi.modelos.Propietario;
+import com.example.inmobiliariaapi.request.ApiClient;
 
-    private final MutableLiveData<String> mText;
+import java.util.List;
 
-    public InmueblesViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class InmueblesViewModel extends AndroidViewModel {
+
+    private final MutableLiveData<List<Inmueble>> listaInmueble = new MutableLiveData<>();
+
+    public InmueblesViewModel(@NonNull Application application) {
+        super(application);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+
+    public LiveData<List<Inmueble>> getListaInmuebles() {
+        return listaInmueble;
+    }
+
+    public void obtenerInmuebles() {
+        ApiClient.InmobiliariaService api = ApiClient.getInmobiliariaService();
+        String token = ApiClient.leerToken(getApplication());
+        Call<List<Inmueble>> llamada = api.obtenerInmuebles("Bearer "+token);
+        llamada.enqueue(new Callback<List<Inmueble>>() {
+            @Override
+            public void onResponse(Call<List<Inmueble>> call, Response<List<Inmueble>> response) {
+                if (response.isSuccessful()) {
+                    listaInmueble.postValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Inmueble>> call, Throwable t) {
+                listaInmueble.setValue(null);
+            }
+        });
     }
 }
