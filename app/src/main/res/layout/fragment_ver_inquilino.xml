@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    tools:context=".ui.inquilinos.VerInquilinoFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:id="@+id/tv_toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detalles del Inquilino"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#34495E"
+                android:layout_marginBottom="16dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_personal_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_nombre_completo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mario Luna"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="#E67E22"
+                        android:layout_marginBottom="12dp" />
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:columnOrderPreserved="false">
+
+                        <LinearLayout style="@style/DetailItemLayout.HalfWidth">
+                            <TextView style="@style/DetailLabelStyle" android:text="Código" />
+                            <TextView android:id="@+id/tv_codigo" style="@style/DetailValueStyle.Bold" android:text="100" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/DetailItemLayout.HalfWidth">
+                            <TextView style="@style/DetailLabelStyle" android:text="DNI" />
+                            <TextView android:id="@+id/tv_dni" style="@style/DetailValueStyle.Bold" android:text="25340691" />
+                        </LinearLayout>
+                    </GridLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_contact_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contacto del Inquilino"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#34495E"
+                        android:paddingHorizontal="8dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_email_action"
+                        style="@style/ContactRowActionStyle">
+                        <ImageView style="@style/ContactIconStyle" android:src="@drawable/ic_email" android:contentDescription="Email" />
+                        <LinearLayout style="@style/ContactTextBoxStyle">
+                            <TextView style="@style/DetailLabelStyle" android:text="Email" />
+                            <TextView android:id="@+id/tv_email" style="@style/DetailValueStyle" android:text="luna@mail.com" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View style="@style/DividerStyle" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_telefono_action"
+                        style="@style/ContactRowActionStyle">
+                        <ImageView style="@style/ContactIconStyle" android:src="@drawable/ic_phone" android:contentDescription="Teléfono" />
+                        <LinearLayout style="@style/ContactTextBoxStyle">
+                            <TextView style="@style/DetailLabelStyle" android:text="Teléfono" />
+                            <TextView android:id="@+id/tv_telefono" style="@style/DetailValueStyle" android:text="2664253411" />
+                        </LinearLayout>
+                        <ImageView
+                            android:id="@+id/iv_call_inquilino_quick"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center_vertical"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Llamar Inquilino" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_guarantor_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Garante"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#34495E"
+                        android:paddingHorizontal="8dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout style="@style/ContactRowActionStyle"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:focusable="false">
+                        <ImageView style="@style/ContactIconStyle"
+                            android:src="@drawable/ic_perfil"
+                            android:contentDescription="Icono de Garante" />
+                        <LinearLayout style="@style/ContactTextBoxStyle">
+                            <TextView style="@style/DetailLabelStyle"
+                                android:text="Nombre" />
+                            <TextView
+                                android:id="@+id/tv_garante_nombre"
+                                style="@style/DetailValueStyle"
+                                android:text="Lucero Roberto" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View style="@style/DividerStyle" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_garante_telefono_action"
+                        style="@style/ContactRowActionStyle">
+                        <ImageView style="@style/ContactIconStyle"
+                            android:src="@drawable/ic_phone"
+                            android:contentDescription="Teléfono Garante" />
+                        <LinearLayout style="@style/ContactTextBoxStyle">
+                            <TextView style="@style/DetailLabelStyle"
+                                android:text="Teléfono" />
+                            <TextView
+                                android:id="@+id/tv_garante_telefono"
+                                style="@style/DetailValueStyle"
+                                android:text="2664851422" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

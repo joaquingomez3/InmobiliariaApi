@@ -1,0 +1,74 @@
+<resources>
+    <style name="DetailLabelStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#7F8C8D</item> </style>
+
+    <style name="DetailValueStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#34495E</item> <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+    <style name="DetailItemLayout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <!-- Puedes agregar aquí cualquier otro atributo que compartan FullWidth y HalfWidth -->
+    </style>
+
+    <style name="DetailValueStyle.Bold" parent="DetailValueStyle">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DetailItemLayout.HalfWidth">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingHorizontal">8dp</item>
+        <item name="android:paddingVertical">4dp</item>
+    </style>
+
+    <style name="ContactRowActionStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingVertical">12dp</item>
+        <item name="android:paddingHorizontal">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="ContactIconStyle">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:tint">#E67E22</item>
+        <item name="android:layout_marginEnd">12dp</item>
+    </style>
+
+    <style name="ContactTextBoxStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="DividerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#F5F5F5</item>
+        <item name="android:layout_marginStart">48dp</item> </style>
+
+    <style name="DetailItemLayout.FullWidth">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingVertical">8dp</item>
+    </style>
+
+
+</resources>

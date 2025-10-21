@@ -23,7 +23,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
 public class ApiClient {
-    private static final String BASE_URL = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net/"; //mi api o api de prueba
+    public static final String BASE_URL = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net/"; //mi api o api de prueba
 
 
 
@@ -71,6 +71,9 @@ public class ApiClient {
 
         @GET("api/Inmuebles")
         Call<List<Inmueble>> obtenerInmuebles(@Header("Authorization") String token);
+
+        @PUT("api/Inmuebles/actualizar")
+        Call<Inmueble> actualizarInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
 
 
     }
