@@ -2,6 +2,7 @@ package com.example.inmobiliariaapi.ui.salir;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,10 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.inmobiliariaapi.R;
+import com.example.inmobiliariaapi.databinding.FragmentSalirBinding;
 
 public class SalirFragment extends Fragment {
 
     private SalirViewModel mViewModel;
+    private FragmentSalirBinding binding;
 
     public static SalirFragment newInstance() {
         return new SalirFragment();
@@ -25,7 +28,34 @@ public class SalirFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_salir, container, false);
+        // 1. Inflar el binding y obtener la vista raíz
+        binding = FragmentSalirBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+
+        mostrarDialogoDeSalida();
+
+
+        return root;
+    }
+    // --- Método para encapsular la lógica del diálogo ---
+    private void mostrarDialogoDeSalida() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Confirmar Salida")
+                .setMessage("¿Seguro que desea Salir?")
+                .setPositiveButton("Sí", (dialog, which) -> {
+                    // Cierra la actividad contenedora y elimina todas las tareas.
+                    requireActivity().finishAndRemoveTask();
+                })
+                .setNegativeButton("No", (dialog, which) -> {
+                    dialog.dismiss();
+
+
+                    getParentFragmentManager().popBackStack();
+
+                })
+                .setCancelable(false)
+                .show();
     }
 
     @Override

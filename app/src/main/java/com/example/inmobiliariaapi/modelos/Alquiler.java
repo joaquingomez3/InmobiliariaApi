@@ -1,10 +1,11 @@
 package com.example.inmobiliariaapi.modelos;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import java.time.LocalDateTime;
 
-public class Alquiler {
+public class Alquiler implements Serializable {
     private int idAlquiler;
     private double precio;
     private LocalDateTime fechaInicio;

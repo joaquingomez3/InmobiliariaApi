@@ -76,7 +76,7 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.ViewHo
             public ViewHolderInmueble(@NonNull View itemView) {
                 super(itemView);
                 foto=itemView.findViewById(R.id.iv_foto_inmueble);
-                precio=itemView.findViewById(R.id.tv_precio_inmueble);
+                precio=itemView.findViewById(R.id.tvDireccionContrato);
                 direccion=itemView.findViewById(R.id.tv_direccion_inmueble);
                 cardView=itemView.findViewById(R.id.idCard);
 

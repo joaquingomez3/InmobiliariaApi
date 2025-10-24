@@ -3,6 +3,7 @@ package com.example.inmobiliariaapi.request;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.inmobiliariaapi.modelos.Alquiler;
 import com.example.inmobiliariaapi.modelos.Inmueble;
 import com.example.inmobiliariaapi.modelos.Propietario;
 import com.google.gson.Gson;
@@ -21,6 +22,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public class ApiClient {
     public static final String BASE_URL = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net/"; //mi api o api de prueba
@@ -74,6 +76,9 @@ public class ApiClient {
 
         @PUT("api/Inmuebles/actualizar")
         Call<Inmueble> actualizarInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
+        
+        @GET("api/contratos/inmueble/{id}")
+        Call<List<Alquiler>> obtenerContratosInmueble(@Header("Authorization") String token, @Path("id") int id);
 
 
     }

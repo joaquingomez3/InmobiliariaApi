@@ -70,7 +70,7 @@
     <fragment
         android:id="@+id/verInquilinoFragment"
         android:name="com.example.inmobiliariaapi.ui.inquilinos.VerInquilinoFragment"
-        android:label="fragment_ver_inquilino"
+        android:label="Informacion"
         tools:layout="@layout/fragment_ver_inquilino" >
         <action
             android:id="@+id/action_verInquilinoFragment_to_nav_inquilinos"
@@ -80,7 +80,7 @@
         android:id="@+id/crearInmuebleFragment"
         android:name="com.example.inmobiliariaapi.ui.inmuebles.CrearInmuebleFragment"
         android:label="fragment_crear_inmueble"
-        tools:layout="@layout/fragment_crear_inmueble" >
+        tools:layout="Crear Inmueble" >
         <action
             android:id="@+id/action_crearInmuebleFragment_to_nav_inmuebles"
             app:destination="@id/nav_inmuebles" />
@@ -88,7 +88,7 @@
     <fragment
         android:id="@+id/detallePagosFragment"
         android:name="com.example.inmobiliariaapi.ui.contratos.DetallePagosFragment"
-        android:label="fragment_detalle_pagos"
+        android:label="Pagos"
         tools:layout="@layout/fragment_detalle_pagos" >
         <action
             android:id="@+id/action_detallePagosFragment_to_infoContratoFragment"
@@ -97,7 +97,7 @@
     <fragment
         android:id="@+id/infoContratoFragment"
         android:name="com.example.inmobiliariaapi.ui.contratos.InfoContratoFragment"
-        android:label="fragment_info_contrato"
+        android:label="Informacion"
         tools:layout="@layout/fragment_info_contrato" >
         <action
             android:id="@+id/action_infoContratoFragment_to_detallePagosFragment"
@@ -110,7 +110,7 @@
         android:id="@+id/infoInmuebleFragment"
         android:name="com.example.inmobiliariaapi.ui.inmuebles.InfoInmuebleFragment"
         android:label="fragment_info_inmueble"
-        tools:layout="@layout/fragment_info_inmueble" >
+        tools:layout="Detalle del Inmueble" >
         <action
             android:id="@+id/action_infoInmuebleFragment_to_nav_inmuebles"
             app:destination="@id/nav_inmuebles" />

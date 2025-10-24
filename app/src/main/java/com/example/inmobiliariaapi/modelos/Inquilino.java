@@ -1,6 +1,8 @@
 package com.example.inmobiliariaapi.modelos;
 
-public class Inquilino {
+import java.io.Serializable;
+
+public class Inquilino implements Serializable {
     private int idInquilino;
     private int dni;
     private String apellido;
