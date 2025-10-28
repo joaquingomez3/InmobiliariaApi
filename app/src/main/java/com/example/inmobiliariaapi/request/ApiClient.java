@@ -88,5 +88,12 @@ public class ApiClient {
         @POST("api/Inmuebles/cargar")
         Call<Inmueble> crearInmueble(@Header("Authorization") String token, @Part MultipartBody.Part imagen, @Part ("inmueble")RequestBody inmueble);
 
+        @PUT("Propietarios/changePassword")
+        @FormUrlEncoded // para enviar datos como un formulario
+        Call<Void> cambiarPassword(
+                @Header("Authorization") String token,
+                @Field("PasswordActual") String passwordActual,
+                @Field("PasswordNueva") String passwordNueva
+        );
     }
 }

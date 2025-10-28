@@ -14,6 +14,25 @@
         tools:context=".ui.perfil.PerfilFragment">
 
         <!-- Título -->
+
+        <Button
+            android:id="@+id/btnContraseña"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/jp_primary"
+            android:text="Cambiar Contraseña"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:cornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardPerfil"
+            app:layout_constraintVertical_bias="1.0" />
+
         <TextView
             android:id="@+id/tvTitulo"
             android:layout_width="wrap_content"

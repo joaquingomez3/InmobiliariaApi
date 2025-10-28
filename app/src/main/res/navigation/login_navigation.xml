@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/recuperarFragment"
-        android:name="com.example.inmobiliariaapi.ui.recuperar.RecuperarFragment"
+        android:name="com.example.inmobiliariaapi.ui.perfil.RecuperarFragment"
         android:label="Recuperar contraseña"
         tools:layout="@layout/fragment_recuperar" />
 

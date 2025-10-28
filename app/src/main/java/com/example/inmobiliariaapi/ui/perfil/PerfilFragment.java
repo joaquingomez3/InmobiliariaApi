@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
+import com.example.inmobiliariaapi.R;
 import com.example.inmobiliariaapi.databinding.FragmentPerfilBinding;
 import com.example.inmobiliariaapi.modelos.Propietario;
 
@@ -69,6 +71,13 @@ public class PerfilFragment extends Fragment {
                 String telefono = binding.etTelefono.getText().toString();
                 mv.guardar(binding.btnEditar.getText().toString(), dni, nombre, apellido, mail, telefono);
 
+            }
+        });
+
+        binding.btnContraseA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_nav_perfil_to_recuperarFragment2);
             }
         });
 
