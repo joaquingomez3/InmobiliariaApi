@@ -1,227 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA">
+    android:fillViewport="true"
+    tools:context=".ui.inmuebles.CrearInmuebleFragment">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:paddingHorizontal="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_guardar_inmueble">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="16dp"
-            android:paddingBottom="24dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Datos Básicos"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#34495E"
-                android:layout_marginBottom="16dp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#E67E22"
-                android:hint="Código (Opcional)"
-                android:textColorHint="#E67E22">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_codigo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    tools:text="504" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:boxStrokeColor="#E67E22"
-                android:hint="Dirección Completa*"
-                android:textColorHint="#E67E22">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_direccion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPostalAddress"
-                    android:maxLines="1"
-                    tools:text="Av. Libertad 123" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Detalles de la Propiedad"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#34495E"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="16dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:baselineAligned="false"
-                android:weightSum="2">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    app:boxStrokeColor="#E67E22"
-                    android:hint="Ambientes*"
-                    android:textColorHint="#E67E22">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_ambientes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:maxLines="1"
-                        tools:text="3" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    app:boxStrokeColor="#E67E22"
-                    android:hint="Tipo*"
-                    android:textColorHint="#E67E22">
-                    <AutoCompleteTextView
-                        android:id="@+id/actv_tipo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        tools:text="Casa" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp"
-                android:baselineAligned="false"
-                android:weightSum="2">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    app:boxStrokeColor="#E67E22"
-                    app:prefixText="$"
-                    android:hint="Precio*"
-                    android:textColorHint="#E67E22">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_precio"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:maxLines="1"
-                        tools:text="17000.00" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    app:boxStrokeColor="#E67E22"
-                    android:hint="Uso*"
-                    android:textColorHint="#E67E22">
-                    <AutoCompleteTextView
-                        android:id="@+id/actv_uso"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        tools:text="Particular" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#EEEEEE"
-                android:layout_marginVertical="24dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Disponibilidad y Multimedia"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#34495E"
-                android:layout_marginBottom="16dp" />
-
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switch_disponible"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Inmueble Disponible para Venta/Renta"
-                android:checked="true"
-                android:textSize="16sp"
-                android:textColor="#34495E"
-                app:thumbTint="#E67E22"
-
-                android:layout_marginBottom="24dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_subir_fotos"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Subir Fotos del Inmueble"
-                android:paddingVertical="12dp"
-                android:textSize="16sp"
-                android:textColor="#E67E22"
-                app:strokeColor="#E67E22"
-                app:icon="@drawable/ic_upload_image"
-                app:iconTint="#E67E22"
-                app:cornerRadius="8dp"
-                app:iconGravity="textStart"
-                app:iconPadding="16dp"/>
-
-        </LinearLayout>
-    </ScrollView>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_guardar_inmueble"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GUARDAR INMUEBLE"
-        android:paddingVertical="12dp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="8dp"
-        android:backgroundTint="#E67E22"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Agregar Inmueble"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+            android:textColor="@color/jp_primary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/form_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView5">
+
+            <!-- Aplicando el nuevo estilo a cada TextInputLayout -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/App.TextInputLayout.Primary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDireccion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Dirección"
+                    android:inputType="textPostalAddress"
+                    android:textColor="@color/jp_primary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                style="@style/App.TextInputLayout.Primary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Uso (Ej: Comercial, Residencial)"
+                    android:inputType="textCapWords"
+                    android:textColor="@color/jp_primary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                style="@style/App.TextInputLayout.Primary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTipo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tipo (Ej: Casa, Departamento)"
+                    android:inputType="textCapWords"
+                    android:textColor="@color/jp_primary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                style="@style/App.TextInputLayout.Primary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSuperficie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Superficie (m²)"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/jp_primary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                style="@style/App.TextInputLayout.Primary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAmbientes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cantidad de Ambientes"
+                    android:inputType="number"
+                    android:textColor="@color/jp_primary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:prefixText="$"
+                style="@style/App.TextInputLayout.Primary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etValor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Precio"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/jp_primary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cbDisp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Disponible para alquiler"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/form_container" />
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:background="#E0E0E0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbDisp"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <Button
+            android:id="@+id/btnFoto"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/jp_primary"
+            android:text="Subir Foto"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_menu_camera"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/imgView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgView"
+            app:layout_constraintTop_toTopOf="@id/imgView"/>
+
+        <Button
+            android:id="@+id/btnCargar"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/jp_primary"
+            android:paddingVertical="12dp"
+            android:text="Cargar Inmueble"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

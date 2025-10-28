@@ -49,7 +49,7 @@ public class ContratosFragment extends Fragment {
                 binding.lista2.setAdapter(ca);
             }
         });
-        mv.obtenerContratosInmueble();
+      //  mv.obtenerContratosInmueble();
         return root;
     }
 

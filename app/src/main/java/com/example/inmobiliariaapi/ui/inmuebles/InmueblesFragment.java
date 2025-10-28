@@ -10,8 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.example.inmobiliariaapi.R;
 import com.example.inmobiliariaapi.databinding.FragmentInmueblesBinding;
 import com.example.inmobiliariaapi.modelos.Inmueble;
 
@@ -40,6 +42,13 @@ public class InmueblesFragment extends Fragment {
         });
 
         mv.obtenerInmuebles();
+
+        binding.fabAgregarInmueble.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_nav_inmuebles_to_crearInmuebleFragment);
+            }
+        });
         return root;
     }
 

@@ -43,12 +43,12 @@ public class ContratoAdapter extends RecyclerView.Adapter<ContratoAdapter.ViewHo
 
         Alquiler contrato=listado.get(position);
 
-        holder.direccion.setText("Precio: "+contrato.getValor());
-        Glide.with(context)
+        //holder.direccion.setText("Precio: "+contrato.getValor());
+       /* Glide.with(context)
                 .load(ApiClient.BASE_URL + contrato.getImagen())
                 .placeholder(R.drawable.logo)
                 .error("null")
-                .into(holder.foto);
+                .into(holder.foto);*/
         holder.button.setOnClickListener(v ->
         {
             Bundle bundle = new Bundle();

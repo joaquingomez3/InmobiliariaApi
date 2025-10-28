@@ -70,5 +70,12 @@
         <item name="android:paddingVertical">8dp</item>
     </style>
 
+    <style name="App.TextInputLayout.Primary" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Color del borde y la etiqueta cuando no está enfocado -->
+        <item name="boxStrokeColor">@color/jp_primary</item>
+        <item name="hintTextColor">@color/jp_primary</item>
+        <!-- Color de la etiqueta flotante cuando está enfocado -->
+        <item name="android:textColorHint">@color/jp_primary</item>
+    </style>
 
 </resources>
