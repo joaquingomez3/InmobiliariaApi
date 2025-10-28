@@ -109,7 +109,7 @@
     <fragment
         android:id="@+id/infoInmuebleFragment"
         android:name="com.example.inmobiliariaapi.ui.inmuebles.InfoInmuebleFragment"
-        android:label="fragment_info_inmueble"
+        android:label="Informacion"
         tools:layout="Detalle del Inmueble" >
         <action
             android:id="@+id/action_infoInmuebleFragment_to_nav_inmuebles"
