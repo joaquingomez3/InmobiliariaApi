@@ -1,12 +1,24 @@
 package com.example.inmobiliariaapi;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.example.inmobiliariaapi.databinding.ActivityLoginBinding;
 
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -21,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityLoginBinding binding;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +51,12 @@ public class LoginActivity extends AppCompatActivity {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.login_nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+
+
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

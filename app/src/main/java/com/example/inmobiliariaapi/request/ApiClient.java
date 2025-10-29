@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import com.example.inmobiliariaapi.modelos.Alquiler;
 import com.example.inmobiliariaapi.modelos.Inmueble;
+import com.example.inmobiliariaapi.modelos.Pago;
 import com.example.inmobiliariaapi.modelos.Propietario;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -81,19 +82,27 @@ public class ApiClient {
         @PUT("api/Inmuebles/actualizar")
         Call<Inmueble> actualizarInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
         
-        @GET("api/contratos/inmueble/{id}")
-        Call<List<Alquiler>> obtenerContratosInmueble(@Header("Authorization") String token, @Path("id") int id);
+
 
         @Multipart
         @POST("api/Inmuebles/cargar")
         Call<Inmueble> crearInmueble(@Header("Authorization") String token, @Part MultipartBody.Part imagen, @Part ("inmueble")RequestBody inmueble);
 
-        @PUT("Propietarios/changePassword")
+        @PUT("api/Propietarios/changePassword")
         @FormUrlEncoded // para enviar datos como un formulario
-        Call<Void> cambiarPassword(
+        Call<Propietario> cambiarPassword(
                 @Header("Authorization") String token,
-                @Field("PasswordActual") String passwordActual,
-                @Field("PasswordNueva") String passwordNueva
+                @Field("currentPassword") String passwordActual,
+                @Field("newPassword") String passwordNueva
         );
+
+        @GET("api/Inmuebles/GetContratoVigente")
+        Call<List<Inmueble>> obtenerContratoVigente(@Header("Authorization") String token);
+
+        @GET("api/contratos/inmueble/{id}")
+        Call<Alquiler> contratoPorInmueble (@Header("Authorization") String token, @Path("id") int id);
+
+        @GET("api/pagos/contrato/{id}")
+        Call<List<Pago>> pagosPorContrato (@Header("Authorization") String token, @Path("id") int id);
     }
 }

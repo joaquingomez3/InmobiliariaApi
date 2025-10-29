@@ -13,26 +13,6 @@
         android:layout_height="wrap_content"
         tools:context=".ui.perfil.PerfilFragment">
 
-        <!-- Título -->
-
-        <Button
-            android:id="@+id/btnContraseña"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/jp_primary"
-            android:text="Cambiar Contraseña"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            app:cornerRadius="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardPerfil"
-            app:layout_constraintVertical_bias="1.0" />
-
         <TextView
             android:id="@+id/tvTitulo"
             android:layout_width="wrap_content"
@@ -46,13 +26,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Contenedor de campos con fondo y sombra -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardPerfil"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="32dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
             app:layout_constraintTop_toBottomOf="@id/tvTitulo"
@@ -66,14 +44,12 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <!-- Código de usuario -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilCodigo"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Código de Usuario"
-
                     android:textColorHint="@color/jp_primary"
                     app:boxCornerRadiusBottomEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
@@ -82,7 +58,6 @@
                     app:boxStrokeColor="@color/jp_primary"
                     app:startIconTint="@color/jp_primary"/>
 
-                <!-- DNI -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilDni"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -106,7 +81,6 @@
                         tools:text="12345678" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Nombre -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilNombre"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -114,7 +88,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Nombre"
-
                     android:textColorHint="@color/jp_primary"
                     app:boxStrokeColor="@color/jp_primary"
                     app:startIconTint="@color/jp_primary">
@@ -129,7 +102,6 @@
                         tools:text="Juan" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Apellido -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilApellido"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -137,7 +109,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Apellido"
-
                     android:textColorHint="@color/jp_primary"
                     app:boxStrokeColor="@color/jp_primary"
                     app:startIconTint="@color/jp_primary">
@@ -152,7 +123,6 @@
                         tools:text="Pérez" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Correo -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilMail"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -175,7 +145,6 @@
                         tools:text="juan.perez@ejemplo.com" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Teléfono -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilTelefono"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -183,7 +152,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Teléfono"
-
                     android:textColorHint="@color/jp_primary"
                     app:boxStrokeColor="@color/jp_primary"
                     app:startIconTint="@color/jp_primary">
@@ -198,27 +166,41 @@
                         tools:text="+54 9 11 1234 5678" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Contraseña -->
-
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Botón Guardar -->
         <Button
             android:id="@+id/btnEditar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginTop="32dp"
             android:backgroundTint="@color/jp_primary"
             android:text="Editar"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             app:cornerRadius="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardPerfil" />
+            app:layout_constraintTop_toBottomOf="@id/cardPerfil"
+            />
+
+        <Button
+            android:id="@+id/btnContraseña"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/jp_primary"
+            android:text="Cambiar Contraseña"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnEditar"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

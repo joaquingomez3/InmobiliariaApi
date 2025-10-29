@@ -45,15 +45,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:orientation="vertical"
                     android:padding="16dp">
 
                     <!-- Código de contrato -->
-                    <LinearLayout
-                        style="@style/DetailItemLayout.FullWidth">
+                    <LinearLayout style="@style/DetailItemLayout.FullWidth">
+
                         <TextView
                             style="@style/DetailLabelStyle"
                             android:text="Código contrato" />
+
                         <TextView
                             android:id="@+id/tv_codigo_contrato"
                             style="@style/DetailValueStyle.Bold"
@@ -63,10 +65,12 @@
                     <View style="@style/DividerStyle" />
 
                     <!-- Fecha inicio -->
-                    <LinearLayout
-                        style="@style/DetailItemLayout.FullWidth">
-                        <TextView style="@style/DetailLabelStyle"
+                    <LinearLayout style="@style/DetailItemLayout.FullWidth">
+
+                        <TextView
+                            style="@style/DetailLabelStyle"
                             android:text="Fecha inicio" />
+
                         <TextView
                             android:id="@+id/tv_fecha_inicio"
                             style="@style/DetailValueStyle.Bold"
@@ -76,11 +80,12 @@
                     <View style="@style/DividerStyle" />
 
                     <!-- Fecha finalización -->
-                    <LinearLayout
-                        style="@style/DetailItemLayout.FullWidth">
+                    <LinearLayout style="@style/DetailItemLayout.FullWidth">
+
                         <TextView
                             style="@style/DetailLabelStyle"
                             android:text="Fecha finalización" />
+
                         <TextView
                             android:id="@+id/tv_fecha_fin"
                             style="@style/DetailValueStyle.Bold"
@@ -90,11 +95,12 @@
                     <View style="@style/DividerStyle" />
 
                     <!-- Monto -->
-                    <LinearLayout
-                        style="@style/DetailItemLayout.FullWidth">
+                    <LinearLayout style="@style/DetailItemLayout.FullWidth">
+
                         <TextView
                             style="@style/DetailLabelStyle"
                             android:text="Monto de alquiler" />
+
                         <TextView
                             android:id="@+id/tv_monto"
                             style="@style/DetailValueStyle.Bold"
@@ -105,11 +111,12 @@
                     <View style="@style/DividerStyle" />
 
                     <!-- Inquilino -->
-                    <LinearLayout
-                        style="@style/DetailItemLayout.FullWidth">
+                    <LinearLayout style="@style/DetailItemLayout.FullWidth">
+
                         <TextView
                             style="@style/DetailLabelStyle"
                             android:text="Inquilino" />
+
                         <TextView
                             android:id="@+id/tv_inquilino"
                             style="@style/DetailValueStyle.Bold"
@@ -120,9 +127,12 @@
                     <View style="@style/DividerStyle" />
 
                     <!-- Inmueble -->
-                    <LinearLayout
-                        style="@style/DetailItemLayout.FullWidth">
-                        <TextView style="@style/DetailLabelStyle" android:text="Inmueble" />
+                    <LinearLayout style="@style/DetailItemLayout.FullWidth">
+
+                        <TextView
+                            style="@style/DetailLabelStyle"
+                            android:text="Inmueble" />
+
                         <TextView
                             android:id="@+id/tv_inmueble"
                             style="@style/DetailValueStyle.Bold"

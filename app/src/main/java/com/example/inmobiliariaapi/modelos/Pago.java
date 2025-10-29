@@ -1,38 +1,74 @@
 package com.example.inmobiliariaapi.modelos;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import java.time.LocalDate;
 
-public class Pago {
+public class Pago implements Serializable {
     private int idPago;
-    private int nroPago;
-    private LocalDate fecha;
-    private double importe;
+    private String detalle;
+    private String fechaPago;
+    private int idContrato;
+    private double monto;
     private Alquiler alquiler;
 
     public Pago() {}
 
-    public Pago(int idPago, int nroPago, LocalDate fecha, double importe, Alquiler alquiler) {
+    public Pago(int idPago, String detalle, String fechaPago, int idContrato, double monto, Alquiler alquiler) {
         this.idPago = idPago;
-        this.nroPago = nroPago;
-        this.fecha = fecha;
-        this.importe = importe;
+        this.detalle = detalle;
+        this.fechaPago = fechaPago;
+        this.idContrato = idContrato;
+        this.monto = monto;
         this.alquiler = alquiler;
     }
 
-    public int getIdPago() { return idPago; }
-    public void setIdPago(int idPago) { this.idPago = idPago; }
+    public int getIdPago() {
+        return idPago;
+    }
 
-    public int getNroPago() { return nroPago; }
-    public void setNroPago(int nroPago) { this.nroPago = nroPago; }
+    public void setIdPago(int idPago) {
+        this.idPago = idPago;
+    }
 
-    public LocalDate getFecha() { return fecha; }
-    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
+    public String getDetalle() {
+        return detalle;
+    }
 
-    public double getImporte() { return importe; }
-    public void setImporte(double importe) { this.importe = importe; }
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
+    }
 
-    public Alquiler getAlquiler() { return alquiler; }
-    public void setAlquiler(Alquiler alquiler) { this.alquiler = alquiler; }
+    public String getFechaPago() {
+        return fechaPago;
+    }
+
+    public void setFechaPago(String fechaPago) {
+        this.fechaPago = fechaPago;
+    }
+
+    public int getIdContrato() {
+        return idContrato;
+    }
+
+    public void setIdContrato(int idContrato) {
+        this.idContrato = idContrato;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
+
+    public Alquiler getAlquiler() {
+        return alquiler;
+    }
+
+    public void setAlquiler(Alquiler alquiler) {
+        this.alquiler = alquiler;
+    }
 }

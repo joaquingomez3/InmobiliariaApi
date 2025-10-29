@@ -2,7 +2,7 @@ package com.example.inmobiliariaapi.ui.perfil;
 
 import android.app.Application;
 import android.content.Context;
-import android.telecom.Call;
+
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -10,10 +10,16 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.inmobiliariaapi.modelos.Propietario;
 import com.example.inmobiliariaapi.request.ApiClient;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
 public class RecuperarViewModel extends AndroidViewModel {
-    private Context context;
+
     private MutableLiveData<String> mToastMessage;
     private MutableLiveData<Boolean> mUpdateExitoso;
 
@@ -21,7 +27,7 @@ public class RecuperarViewModel extends AndroidViewModel {
 
     public RecuperarViewModel(@NonNull Application application) {
         super(application);
-        context = application.getApplicationContext();
+
         mToastMessage = new MutableLiveData<>();
         mUpdateExitoso = new MutableLiveData<>();
 
@@ -49,16 +55,27 @@ public class RecuperarViewModel extends AndroidViewModel {
             return;
         }
 
-        // Aquí podrías añadir más validaciones (ej: longitud mínima de la nueva contraseña)
+
 
         // 2. Llamada a la API
         ApiClient.InmobiliariaService api = ApiClient.getInmobiliariaService();
-        String token = ApiClient.leerToken(context);
-        if (token == null || token.isEmpty()) {
-            mToastMessage.setValue("Error de autenticación. Vuelva a iniciar sesión.");
-            return;
-        }
+        String token = ApiClient.leerToken(getApplication());
+        Call<Propietario> llamada = api.cambiarPassword("Bearer "+token, passActual, passNueva);
+        llamada.enqueue(new Callback<Propietario>() {
+            @Override
+            public void onResponse(Call<Propietario> call, Response<Propietario> response) {
+                if (response.isSuccessful()) {
+                    mUpdateExitoso.setValue(true);
+                } else {
+                    mToastMessage.setValue("Error al cambiar la contraseña.");
+                }
+            }
 
+            @Override
+            public void onFailure(Call<Propietario> call, Throwable t) {
+                mToastMessage.setValue("Error al cambiar la contraseña.");
+            }
+        });
 
     }
 }

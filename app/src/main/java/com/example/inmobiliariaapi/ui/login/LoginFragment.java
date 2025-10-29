@@ -55,9 +55,7 @@ public class LoginFragment extends Fragment {
             }
         });
 
-        binding.tvForgotPassword.setOnClickListener(v-> {
-            Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_recoveryFragment);
-        });
+
 
         return root;
     }

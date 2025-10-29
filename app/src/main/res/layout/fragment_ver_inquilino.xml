@@ -43,6 +43,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -50,11 +51,11 @@
                         android:id="@+id/tv_nombre_completo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
                         android:text="Mario Luna"
-                        android:textSize="28sp"
-                        android:textStyle="bold"
                         android:textColor="#E67E22"
-                        android:layout_marginBottom="12dp" />
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -63,13 +64,27 @@
                         android:columnOrderPreserved="false">
 
                         <LinearLayout style="@style/DetailItemLayout.HalfWidth">
-                            <TextView style="@style/DetailLabelStyle" android:text="Código" />
-                            <TextView android:id="@+id/tv_codigo" style="@style/DetailValueStyle.Bold" android:text="100" />
+
+                            <TextView
+                                style="@style/DetailLabelStyle"
+                                android:text="Código" />
+
+                            <TextView
+                                android:id="@+id/tv_codigo"
+                                style="@style/DetailValueStyle.Bold"
+                                android:text="100" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/DetailItemLayout.HalfWidth">
-                            <TextView style="@style/DetailLabelStyle" android:text="DNI" />
-                            <TextView android:id="@+id/tv_dni" style="@style/DetailValueStyle.Bold" android:text="25340691" />
+
+                            <TextView
+                                style="@style/DetailLabelStyle"
+                                android:text="DNI" />
+
+                            <TextView
+                                android:id="@+id/tv_dni"
+                                style="@style/DetailValueStyle.Bold"
+                                android:text="25340691" />
                         </LinearLayout>
                     </GridLayout>
                 </LinearLayout>
@@ -87,26 +102,39 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:orientation="vertical"
                     android:padding="8dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contacto del Inquilino"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#34495E"
+                        android:layout_marginBottom="8dp"
                         android:paddingHorizontal="8dp"
-                        android:layout_marginBottom="8dp" />
+                        android:text="Contacto del Inquilino"
+                        android:textColor="#34495E"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:id="@+id/ll_email_action"
                         style="@style/ContactRowActionStyle">
-                        <ImageView style="@style/ContactIconStyle" android:src="@drawable/ic_email" android:contentDescription="Email" />
+
+                        <ImageView
+                            style="@style/ContactIconStyle"
+                            android:contentDescription="Email"
+                            android:src="@drawable/ic_email" />
+
                         <LinearLayout style="@style/ContactTextBoxStyle">
-                            <TextView style="@style/DetailLabelStyle" android:text="Email" />
-                            <TextView android:id="@+id/tv_email" style="@style/DetailValueStyle" android:text="luna@mail.com" />
+
+                            <TextView
+                                style="@style/DetailLabelStyle"
+                                android:text="Email" />
+
+                            <TextView
+                                android:id="@+id/tv_email"
+                                style="@style/DetailValueStyle"
+                                android:text="luna@mail.com" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -115,85 +143,37 @@
                     <LinearLayout
                         android:id="@+id/ll_telefono_action"
                         style="@style/ContactRowActionStyle">
-                        <ImageView style="@style/ContactIconStyle" android:src="@drawable/ic_phone" android:contentDescription="Teléfono" />
+
+                        <ImageView
+                            style="@style/ContactIconStyle"
+                            android:contentDescription="Teléfono"
+                            android:src="@drawable/ic_phone" />
+
                         <LinearLayout style="@style/ContactTextBoxStyle">
-                            <TextView style="@style/DetailLabelStyle" android:text="Teléfono" />
-                            <TextView android:id="@+id/tv_telefono" style="@style/DetailValueStyle" android:text="2664253411" />
+
+                            <TextView
+                                style="@style/DetailLabelStyle"
+                                android:text="Teléfono" />
+
+                            <TextView
+                                android:id="@+id/tv_telefono"
+                                style="@style/DetailValueStyle"
+                                android:text="2664253411" />
                         </LinearLayout>
+
                         <ImageView
                             android:id="@+id/iv_call_inquilino_quick"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_gravity="center_vertical"
-                            android:clickable="true"
-                            android:focusable="true"
                             android:background="?attr/selectableItemBackgroundBorderless"
-                            android:contentDescription="Llamar Inquilino" />
+                            android:clickable="true"
+                            android:contentDescription="Llamar Inquilino"
+                            android:focusable="true" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_guarantor_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Garante"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#34495E"
-                        android:paddingHorizontal="8dp"
-                        android:layout_marginBottom="8dp" />
-
-                    <LinearLayout style="@style/ContactRowActionStyle"
-                        android:background="@android:color/transparent"
-                        android:clickable="false"
-                        android:focusable="false">
-                        <ImageView style="@style/ContactIconStyle"
-                            android:src="@drawable/ic_perfil"
-                            android:contentDescription="Icono de Garante" />
-                        <LinearLayout style="@style/ContactTextBoxStyle">
-                            <TextView style="@style/DetailLabelStyle"
-                                android:text="Nombre" />
-                            <TextView
-                                android:id="@+id/tv_garante_nombre"
-                                style="@style/DetailValueStyle"
-                                android:text="Lucero Roberto" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <View style="@style/DividerStyle" />
-
-                    <LinearLayout
-                        android:id="@+id/ll_garante_telefono_action"
-                        style="@style/ContactRowActionStyle">
-                        <ImageView style="@style/ContactIconStyle"
-                            android:src="@drawable/ic_phone"
-                            android:contentDescription="Teléfono Garante" />
-                        <LinearLayout style="@style/ContactTextBoxStyle">
-                            <TextView style="@style/DetailLabelStyle"
-                                android:text="Teléfono" />
-                            <TextView
-                                android:id="@+id/tv_garante_telefono"
-                                style="@style/DetailValueStyle"
-                                android:text="2664851422" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
 

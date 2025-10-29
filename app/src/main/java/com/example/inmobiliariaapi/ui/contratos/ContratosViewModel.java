@@ -21,32 +21,32 @@ import retrofit2.Response;
 
 public class ContratosViewModel extends AndroidViewModel {
 
-    private final MutableLiveData<List<Alquiler>> listaContratos = new MutableLiveData<>();
+    private final MutableLiveData<List<Inmueble>> listaContratos = new MutableLiveData<>();
     public ContratosViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public LiveData<List<Alquiler>> getListaContratos() {
+    public LiveData<List<Inmueble>> getListaContratos() {
         return listaContratos;
     }
 
 
-    public void obtenerContratosInmueble(int idInmueble) {
+    public void obtenerContratos() {
         ApiClient.InmobiliariaService api = ApiClient.getInmobiliariaService();
         String token = ApiClient.leerToken(getApplication());
-        Call<List<Alquiler>> llamada = api.obtenerContratosInmueble("Bearer "+token, idInmueble);
-                llamada.enqueue(new Callback<List<Alquiler>>() {
-                    @Override
-                    public void onResponse(Call<List<Alquiler>> call, Response<List<Alquiler>> response) {
-                        if (response.isSuccessful()) {
-                            listaContratos.setValue(response.body());
-                        }
-                    }
+        Call<List<Inmueble>> llamada = api.obtenerContratoVigente("Bearer "+token);
+        llamada.enqueue(new Callback<List<Inmueble>>() {
+            @Override
+            public void onResponse(Call<List<Inmueble>> call, Response<List<Inmueble>> response) {
+                if (response.isSuccessful()) {
+                    listaContratos.postValue(response.body());
+                }
+            }
 
-                    @Override
-                    public void onFailure(Call<List<Alquiler>> call, Throwable t) {
-                        Log.e("ContratosViewModel", "Error al obtener contratos", t);
-                    }
-                });
+            @Override
+            public void onFailure(Call<List<Inmueble>> call, Throwable t) {
+                listaContratos.setValue(null);
+            }
+        });
     }
 }

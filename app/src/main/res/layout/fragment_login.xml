@@ -90,20 +90,6 @@
                 android:textColorHint="@color/jp_primary" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/tvForgotPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="¿Olvidaste tu contraseña?"
-            android:textColor="@color/jp_primary"
-            android:textSize="14sp"
-            android:fontFamily="sans-serif-medium"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="4dp"
-            android:gravity="end" />
-
         <Button
             android:id="@+id/btnIniciarSesion"
             android:layout_width="match_parent"

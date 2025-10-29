@@ -7,18 +7,20 @@ public class Inquilino implements Serializable {
     private int dni;
     private String apellido;
     private String nombre;
+    private String email;
     private String direccion;
     private int telefono;
 
     public Inquilino() {}
 
-    public Inquilino(int idInquilino, int dni, String apellido, String nombre, String direccion, int telefono) {
+    public Inquilino(int idInquilino, int dni, String apellido, String nombre, String direccion, int telefono, String email) {
         this.idInquilino = idInquilino;
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.email = email;
     }
 
     public int getIdInquilino() { return idInquilino; }
@@ -38,4 +40,7 @@ public class Inquilino implements Serializable {
 
     public int getTelefono() { return telefono; }
     public void setTelefono(int telefono) { this.telefono = telefono; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 }

@@ -14,19 +14,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.inmobiliariaapi.R;
 import com.example.inmobiliariaapi.databinding.FragmentContratosBinding;
 import com.example.inmobiliariaapi.databinding.FragmentInmueblesBinding;
 import com.example.inmobiliariaapi.modelos.Alquiler;
-import com.example.inmobiliariaapi.modelos.ContratoAdapter;
-import com.example.inmobiliariaapi.ui.inmuebles.InmueblesViewModel;
+import com.example.inmobiliariaapi.modelos.Inmueble;
+import com.example.inmobiliariaapi.ui.inquilinos.InquilinoAdapter;
 
 import java.util.List;
 
 public class ContratosFragment extends Fragment {
 
     private ContratosViewModel mv;
-    private FragmentContratosBinding binding;
+    private FragmentInmueblesBinding binding;
 
     public static ContratosFragment newInstance() {
         return new ContratosFragment();
@@ -37,19 +36,22 @@ public class ContratosFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         mv = new ViewModelProvider(this).get(ContratosViewModel.class);
 
-        binding = FragmentContratosBinding.inflate(inflater, container, false);
+        binding = FragmentInmueblesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        mv.getListaContratos().observe(getViewLifecycleOwner(), new Observer<List<Alquiler>>() {
+        mv.getListaContratos().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
             @Override
-            public void onChanged(List<Alquiler> alquileres) {
-                ContratoAdapter ca=new ContratoAdapter(alquileres,getContext(),getLayoutInflater());
-                GridLayoutManager glm=new GridLayoutManager(getContext(),1, GridLayoutManager.VERTICAL,false);
-                binding.lista2.setLayoutManager(glm);
-                binding.lista2.setAdapter(ca);
+            public void onChanged(List<Inmueble> inmuebles) {
+                ContratoAdapter ia=new ContratoAdapter(inmuebles,getContext(),getLayoutInflater());
+                GridLayoutManager glm=new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
+                binding.lista.setLayoutManager(glm);
+                binding.lista.setAdapter(ia);
             }
         });
-      //  mv.obtenerContratosInmueble();
+
+        mv.obtenerContratos();
+
+
         return root;
     }
 
