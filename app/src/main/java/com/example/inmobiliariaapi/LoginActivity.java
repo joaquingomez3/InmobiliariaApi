@@ -9,7 +9,7 @@ import com.example.inmobiliariaapi.databinding.ActivityLoginBinding;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.ViewModelProvider; // <-- 1. IMPORT AGREGADO
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -20,7 +20,7 @@ import androidx.navigation.ui.NavigationUI;
 
         private AppBarConfiguration mAppBarConfiguration;
         private ActivityLoginBinding binding;
-        private LoginViewModel viewModel; // Declara el ViewModel aquí para usarlo en toda la clase
+        private LoginViewModel viewModel;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +28,12 @@ import androidx.navigation.ui.NavigationUI;
             binding = ActivityLoginBinding.inflate(getLayoutInflater());
             setContentView(binding.getRoot());
 
-            // Inicializa el ViewModel
+
             viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
-            // Solicitar permiso en tiempo de ejecución (CORREGIDO)
+            // Solicitar permiso en tiempo de ejecución
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                // Se usa ActivityCompat.requestPermissions para una Activity
+
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 101);
             }
 
@@ -47,8 +47,7 @@ import androidx.navigation.ui.NavigationUI;
         @Override
         public void onResume() {
             super.onResume();
-            // Inicia la detección cuando la actividad es visible (CORREGIDO)
-            // Se usa `this` en lugar de `requireContext()`
+            `
             viewModel.iniciarDeteccionDeSacudida(this);
         }
 

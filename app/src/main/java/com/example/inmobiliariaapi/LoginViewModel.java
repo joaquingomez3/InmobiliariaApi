@@ -1,6 +1,6 @@
 package com.example.inmobiliariaapi;
 
-import android.app.Application; // Import Application
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -18,7 +18,7 @@ public class LoginViewModel extends AndroidViewModel implements SensorEventListe
     private Sensor accelerometer;
     private long lastUpdate = 0;
     private float last_x, last_y, last_z;
-    private static final int SHAKE_THRESHOLD = 800; // Umbral de agitación, puedes ajustarlo
+    private static final int SHAKE_THRESHOLD = 800; // Umbral de agitación
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
@@ -78,7 +78,7 @@ public class LoginViewModel extends AndroidViewModel implements SensorEventListe
 
     private void iniciarLlamada(Context context) {
         // Cambia ACTION_CALL por ACTION_DIAL
-        Intent intent = new Intent(Intent.ACTION_DIAL); // ¡Este es el cambio!
+        Intent intent = new Intent(Intent.ACTION_DIAL);
 
         intent.setData(Uri.parse("tel:2664332211"));
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
