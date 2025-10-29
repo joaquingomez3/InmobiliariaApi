@@ -1,74 +1,75 @@
+
 package com.example.inmobiliariaapi;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.net.Uri;
 import android.os.Bundle;
-
 import android.view.Menu;
-import android.widget.Toast;
-
 import com.example.inmobiliariaapi.databinding.ActivityLoginBinding;
-
-
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProvider; // <-- 1. IMPORT AGREGADO
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import androidx.appcompat.app.AppCompatActivity;
+    public class LoginActivity extends AppCompatActivity {
 
+        private AppBarConfiguration mAppBarConfiguration;
+        private ActivityLoginBinding binding;
+        private LoginViewModel viewModel; // Declara el ViewModel aquí para usarlo en toda la clase
 
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            binding = ActivityLoginBinding.inflate(getLayoutInflater());
+            setContentView(binding.getRoot());
 
-public class LoginActivity extends AppCompatActivity {
+            // Inicializa el ViewModel
+            viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
-    private AppBarConfiguration mAppBarConfiguration;
-    private ActivityLoginBinding binding;
+            // Solicitar permiso en tiempo de ejecución (CORREGIDO)
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Se usa ActivityCompat.requestPermissions para una Activity
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 101);
+            }
 
+            setSupportActionBar(binding.toolbar);
+            mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_login).build();
+            NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.login_nav_host_fragment);
+            NavController navController = navHostFragment.getNavController();
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        }
 
+        @Override
+        public void onResume() {
+            super.onResume();
+            // Inicia la detección cuando la actividad es visible (CORREGIDO)
+            // Se usa `this` en lugar de `requireContext()`
+            viewModel.iniciarDeteccionDeSacudida(this);
+        }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        @Override
+        public void onPause() {
+            super.onPause();
+            // Detiene la detección para no consumir batería cuando no está visible
+            viewModel.detenerDeteccionDeSacudida();
+        }
 
-        setSupportActionBar(binding.toolbar);
-        // Definir destinos raíz (solo loginFragment)
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_login
-        ).build();
-        // Configurar NavController
-        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.login_nav_host_fragment);
-        NavController navController = navHostFragment.getNavController();
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            return true;
+        }
 
-
+        @Override
+        public boolean onSupportNavigateUp() {
+            NavController navController = Navigation.findNavController(this, R.id.login_nav_host_fragment);
+            return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                    || super.onSupportNavigateUp();
+        }
     }
 
 
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-// Si quieres un menú propio para login, descomenta la línea siguiente y crea res/menu/login.xml
-// getMenuInflater().inflate(R.menu.login, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.login_nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
-}
